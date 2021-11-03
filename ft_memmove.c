@@ -14,31 +14,30 @@
 
 void * ft_memmove(void *dst, const void *src, size_t len)
 {
-
-	char *d = (char*)dst;
-	const char *s = (char*)src;
-	while (len--)
-	{
-		*d++ = *s++;
-	}
-	return (dst);
+	char *d = dst;
+    const char *s = src;
+      
+    char *lastSRC = s + (len-1);
+    char *lastDEST = d + (len-1);
+    while (len--)
+        *lastDEST-- = *lastSRC--;
+	return dst;
 }
 
 #include <string.h>
 
 int main()
 {
-	char str1[] = "abcde";
-    char str2[] = "*&^%";
+	char dst[] = "abcde";
 
-	ft_memmove(str1 + 2, str1, 3);
-	puts(str1);
+	ft_memmove(dst + 2, dst, 3);
+	puts(dst);
 
-	char s1[] = "abcde";
-    char s2[] = "*&^%";
+	char dst1[] = "abcde";
+
 	puts("\n");
-	memmove(s1 + 2, s1, 3);
-	puts(s1);
+	memmove(dst1 + 2, dst1, 3);
+	printf("%s", dst1);
 
 
 	return (0);

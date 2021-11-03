@@ -15,6 +15,7 @@
 
 #include <stddef.h>
 #include <stdio.h>
+#include <string.h>
 
 int	ft_isalpha(int character);
 int	ft_isdigit(char num);

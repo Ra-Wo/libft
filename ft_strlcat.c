@@ -12,45 +12,63 @@
 
 #include "libft.h"
 
-
 size_t ft_strlcat(char * dst, const char * src, size_t dstsize)
 {
 
-    unsigned int bDstSize = dstsize;
-    int dlen;
-    char *d = dst;
+    unsigned int bDstSize;
+	size_t DSLen;
+	size_t dlen;
+	size_t slen;
 
+	dlen = 0;
+	while(dst[dlen] != '\0')
+		dlen++; 
+
+	slen = 0;
+	while(src[slen] != '\0')
+		slen++;
+
+	if (dstsize > (dlen))
+ 		DSLen = (dlen) + (slen);
+	else 
+		DSLen = (slen) + dstsize;
+    
+	bDstSize = dstsize;
     while (bDstSize != 0 && *dst != '\0')
     {
-      dlen++;
       dst++;
       bDstSize--;
     }
-    
-    while (bDstSize != 0 && *src != '\0')
-    {
-      *dst++ = *src;
-      src++;
-    }
 
+    if (bDstSize > 0){
+		while (--bDstSize != 0 && *src != '\0')
+		{
+		*dst++ = *src;
+		src++;
+		}
+	}
+
+	return (DSLen);
 
 }
 
 int main()
 {
-	int size = 11;
+	int size = 0;
 
 	char s1[20]= "hello world";
 	char dest[25]= "123456789";
-	strlcat(dest, s1, size);
-	puts(dest);	
+	puts("\nstd:");
+	printf("%lu \n", strlcat(dest, s1, size));
+	puts(dest);
 
 	// ============
 
 	char s2[20]= "hello world";
 	char dest2[25]= "123456789";
-	ft_strlcat(dest2, s2, size);
-	puts(dest2);	
+	puts("\nremak:");
+	printf("%lu \n", ft_strlcat(dest2, s2, size));
+	puts(dest2);
 
 	return 0;
 }
