@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roudouch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 12:01:49 by roudouch          #+#    #+#             */
-/*   Updated: 2021/11/03 12:01:50 by roudouch         ###   ########.fr       */
+/*   Created: 2021/11/03 15:03:36 by roudouch          #+#    #+#             */
+/*   Updated: 2021/11/03 15:03:38 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_toupper(int ch)
+void *ft_memchr(const void *str, int c, size_t n)
 {
-	if (ch >= 'a' && ch <= 'z')
+	const unsigned char *s = str;
+	while (n-- != 0)
 	{
-		return (ch - 32);
+		if (*s == c)
+		{
+			return (void*)s;
+		}
+		s++;;
 	}
-	return (ch);
+	return (NULL);
 }
 
-int main() {
-    char c;
 
-    c = 'm';
-    printf("%c -> %c", c, ft_toupper(c));
+int main () {
+   const char str[] = "http://www.tutorialspoint.com";
+   const char ch = 'z';
+   char *ret;
 
-    c = 'D';
-    printf("\n%c -> %c", c, ft_toupper(c));
+   ret = ft_memchr(str, ch, strlen(str));
 
-    c = '9';
-    printf("\n%c -> %c", c, ft_toupper(c));
+   printf("String after |%c| is - |%s|\n", ch, ret);
 
-	c = '=';
-    printf("\n%c -> %c", c, ft_toupper(c));
-    return 0;
+   return(0);
 }

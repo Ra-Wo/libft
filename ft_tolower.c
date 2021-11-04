@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roudouch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/03 12:01:49 by roudouch          #+#    #+#             */
-/*   Updated: 2021/11/03 12:01:50 by roudouch         ###   ########.fr       */
+/*   Created: 2021/11/03 12:08:40 by roudouch          #+#    #+#             */
+/*   Updated: 2021/11/03 12:08:41 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_toupper(int ch)
+
+int ft_tolower(int ch)
 {
-	if (ch >= 'a' && ch <= 'z')
+	if (ch >= 'A' && ch <= 'Z')
 	{
-		return (ch - 32);
+		return (ch + 32);
 	}
 	return (ch);
 }
 
-int main() {
-    char c;
+int main()
+{
+    char c, result;
+
+    c = 'M';
+    result = ft_tolower(c);
+    printf("tolower(%c) = %c\n", c, result);
 
     c = 'm';
-    printf("%c -> %c", c, ft_toupper(c));
+    result = ft_tolower(c);
+    printf("tolower(%c) = %c\n", c, result);
 
-    c = 'D';
-    printf("\n%c -> %c", c, ft_toupper(c));
+    c = '+';
+    result = ft_tolower(c);
+    printf("tolower(%c) = %c\n", c, result);
 
-    c = '9';
-    printf("\n%c -> %c", c, ft_toupper(c));
-
-	c = '=';
-    printf("\n%c -> %c", c, ft_toupper(c));
     return 0;
 }
