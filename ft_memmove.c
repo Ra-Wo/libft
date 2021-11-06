@@ -28,12 +28,13 @@ void * ft_memmove(void *dst, const void *src, size_t len)
 
 int main()
 {
-	char dst[] = "abcde";
+	char src[] = "absss";
+	char dst[20];
 
-	ft_memmove(dst + 2, dst, 3);
+	ft_memmove(dst, src, 5);
 	puts(dst);
 
-	char dst1[] = "abcde";
+	char dst1[] = "absss";
 
 	puts("\n");
 	memmove(dst1 + 2, dst1, 3);

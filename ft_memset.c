@@ -23,7 +23,7 @@ void *ft_memset(void *b, int c, size_t n)
 	}
 	return (str);  
 }
-
+/* 
 #include <stdio.h>
   #include <string.h>
 int main ()
@@ -45,3 +45,4 @@ int main ()
 	
 	return 0;
 } 
+ */

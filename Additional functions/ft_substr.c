@@ -1,27 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roudouch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 16:48:56 by roudouch          #+#    #+#             */
-/*   Updated: 2021/11/01 16:49:01 by roudouch         ###   ########.fr       */
+/*   Created: 2021/11/04 14:49:05 by roudouch          #+#    #+#             */
+/*   Updated: 2021/11/04 14:49:07 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-void ft_bzero(void *s, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	ft_memset(s, '\0', n);
+	int		x;
+	int		i;
+	char	*ptr;
+
+	if (!s)
+		return (NULL);
+	x = len;
+	i = 0;
+	ptr = (char *)malloc(len * sizeof(char));
+	if (!ptr)
+		return (NULL);
+	while (x--)
+	{
+		ptr[i++] = *(s + start);
+		start++;
+	}
+	return (ptr);
 }
 /* 
-#include <stdio.h>
 int main()
 {
-	char str[20] = "hello world";
-	ft_bzero(str, 1);
-	printf("%s", str);	
+	char str[] = "hello world";
+	int start = 6;
+	int len = 7;
+	printf("%s", ft_substr(str, start, len));
 	return 0;
 } */

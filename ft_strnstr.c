@@ -31,7 +31,7 @@ int compareWorld(const char *str1, const char *str2)
     while ((*str1++ == *str2++) && i-- != 0)
     {
         if (*str1 != *str2)
-        return 0;
+        	return 0;
     }
     return 1;
 }
@@ -48,19 +48,19 @@ char *ft_strnstr(const char *s, const char *find, size_t len)
             }
         }
         s++;
-    } 
+    }
     return (0);
 }
 
 int main()
 {
     const char *largestring = "F Bar Bazoo";
-    const char *smallstring = "oo";
-	int s = 2;
+    const char *smallstring = "B a";
+	int s = 10;
     char *ptr;
  
-    ptr = strnstr(largestring, smallstring, s);
-    printf("std:	%s\n", ptr);
+    /* ptr = strnstr(largestring, smallstring, s);
+    printf("std:	%s\n", ptr); */
 
     char *ptr1;
  

@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roudouch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 09:18:47 by roudouch          #+#    #+#             */
-/*   Updated: 2021/11/04 09:18:49 by roudouch         ###   ########.fr       */
+/*   Created: 2021/11/04 10:22:45 by roudouch          #+#    #+#             */
+/*   Updated: 2021/11/04 10:22:46 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char *ft_strdup(const char *s1)
 {
-    void *ptr = (void*)malloc(sizeof(void) * (size * count));
-    if(!ptr)
-        return (0);
-    ft_bzero(ptr, size * count);
+    unsigned int sSrc = ft_strlen(s1);
+    char *ptr = (char *)malloc(sSrc * sizeof(char) + 1);
+    ft_strlcpy(ptr, s1, sSrc + 1);
     return (ptr);
 }
 
-/* 
 #include <stdio.h>
-int main() {
-  int *ptr;
-  int blocks = 10;
-  ptr = (int*) ft_calloc(blocks, sizeof(int));
-  int i = 0;
 
-  while (blocks-- != 0)
-  {
-    printf("%d\n", ptr[i++]);   
-  }
-  
-  return 0;
-} */
+int main()
+{
+
+    char s[] = "GeeksForGeeksdgdsgdskgdsgkgsdgdjsgdsgss";
+ 
+    // A copy of source is created dynamically
+    // and pointer to copy is returned.
+    char* t = ft_strdup(s);
+ 
+    printf("%s", t);
+    return 0;
+}

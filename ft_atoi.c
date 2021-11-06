@@ -49,7 +49,7 @@ int ft_atoi(const char *str)
 int main () {
 
    int val;
-   char str[20] = " -993489";
+   char str[20] = " 2147483647";
    
    val = ft_atoi(str);
    printf("String value = %s, Int value = %d\n", str, val);

@@ -66,7 +66,7 @@ int main()
 
 	char s2[20]= "hello world";
 	char dest2[25]= "123456789";
-	puts("\nremak:");
+	puts("\nremake:");
 	printf("%lu \n", ft_strlcat(dest2, s2, size));
 	puts(dest2);
 
