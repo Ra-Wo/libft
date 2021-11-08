@@ -10,11 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
-
-unsigned int ft_strlen(const char *str)
+/* unsigned int ft_strlen(const char *str)
 {
     unsigned int num;
 	num = 0;
@@ -22,7 +20,7 @@ unsigned int ft_strlen(const char *str)
         num++;
     return (num);
 }
-
+ */
 
 char *ft_strjoin(char const *s1, char const *s2)
 {
@@ -50,7 +48,7 @@ char *ft_strjoin(char const *s1, char const *s2)
 	ptr[i] = '\0';
 	return (ptr);
 }
-
+/* 
 int main ()
 {
 	char const *s1 = "hello ";
@@ -59,4 +57,4 @@ int main ()
 	puts(s1);
 	puts(s2);
 	return 0;
-}
+} */

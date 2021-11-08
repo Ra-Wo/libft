@@ -12,29 +12,28 @@
 
 #include "libft.h"
 
-void *ft_memchr(const void *str, int c, size_t n)
+void* ft_memchr(const void* s, int c, size_t n)
 {
-	const unsigned char *s = str;
-	while (n-- != 0)
+	const unsigned char* s1;
+	size_t	i;
+
+	s1 = (unsigned char*)s;
+	i = 0;
+	while (i < n)
 	{
-		if (*s == c)
-		{
-			return (void*)s;
-		}
-		s++;;
+		if (s1[i] == (unsigned char)c)
+			return ((void *)&s1[i]);
+		i++;
 	}
-	return (NULL);
+	return (0);
 }
 
-
+/* 
 int main () {
-   const char str[] = "http://www.tutorialspoint.com";
-   const char ch = 'z';
+   char s[] = {0, 1, 2, 3, 4, 5};
    char *ret;
 
-   ret = ft_memchr(str, ch, strlen(str));
-
-   printf("String after |%c| is - |%s|\n", ch, ret);
+   ret = ft_memchr(s, 2 + 256, 3);
 
    return(0);
-}
+} */

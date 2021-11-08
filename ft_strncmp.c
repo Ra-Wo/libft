@@ -24,36 +24,16 @@ int ft_strncmp(const char *str1, const char *str2, size_t n)
 		n--;
 		i++;
     }
+	return 0;
 }
-
+/* 
 int main () {
    char str1[15] = "aaaaa";
-   char str2[15] = "aaaaal";
-   int ret;
+   char str2[15] = "aaaaa";
+
    int x = 9;
-
-   ret = strncmp(str1, str2, x);
-
-   if(ret < 0) {
-      printf("std:	%s < %s", str1, str2);
-   } else if(ret > 0) {
-      printf("std:	%s < %s", str2, str1);
-   } else {
-      printf("std:	%s = %s", str1, str2);
-   }
-
-    puts("\n");
-
-    ret = ft_strncmp(str1, str2, x);
-
-   if(ret < 0) {
-      printf("REMAKE:	%s < %s", str1, str2);
-   } else if(ret > 0) {
-      printf("REMAKE:	%s < %s", str2, str1);
-   } else {
-      printf("REMAKE:	%s = %s", str1, str2);
-   }
+	printf("%d", ft_strncmp(str1, str2, x));
 
    
    return(0);
-}
+} */

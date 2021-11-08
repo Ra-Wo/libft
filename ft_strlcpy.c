@@ -14,29 +14,42 @@
 
 size_t ft_strlcpy(char * dst, const char * src, size_t dstsize)
 {
-	const char *s = src;
-	unsigned int i = 0;
+	const char *s;
+	size_t i;
+	size_t srclen;
 
-	while (src != '\0' && (dstsize-- -1))
+	s = src;
+	srclen = ft_strlen(src);
+	if (!dstsize)
+		return (srclen);
+	i = 0;
+	while (s[i] != '\0' && (dstsize -1) != 0)
 	{
 		dst[i] = s[i];
 		i++;
+		dstsize--;
 	}
 	dst[i] = '\0';
-	return (ft_strlen(src));
+	return (srclen);
 }
 
+
 /* 
+#include <string.h>
+
 int main ()
 {
 	int s = 11;
 
-	char s1[20] = "hello guyhshrthrth";
-	char s2[20];
-	printf("std: \nreturn: %lu\n%s", strlcpy(s2, s1, s), s2);
+	char src[] = "coucou";
+	char dst[10]; 
+	memset(dst, 'A', 10);
 
-	char st1[20] = "hello guyhshrthrth";
-	char st2[20];
+	printf("std: \nreturn: %lu\n%s", strlcpy(dst, src, s), dst);
+
+	char st1[] = "coucou";
+	char st2[10];
+	memset(st2, 'A', 10);
 	printf("\n\nremake: \nreturn: %lu\n%s", ft_strlcpy(st2, st1, s), st2);
 	
 	return 0;

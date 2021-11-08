@@ -6,40 +6,39 @@
 /*   By: roudouch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/02 11:11:59 by roudouch          #+#    #+#             */
-/*   Updated: 2021/11/02 11:12:01 by roudouch         ###   ########.fr       */
+/*   Updated: 2021/11/06 16:39:57 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void * ft_memmove(void *dst, const void *src, size_t len)
+void* ft_memmove(void *dst, const void *src, size_t len)
 {
-	char *d = dst;
-    const char *s = src;
-      
-    char *lastSRC = s + (len-1);
-    char *lastDEST = d + (len-1);
+  char *d = dst;
+  const char *s = src;
+  if (d < s)
     while (len--)
-        *lastDEST-- = *lastSRC--;
-	return dst;
+      *d++ = *s++;
+  else
+    {
+      char const *lasts = s + (len-1);
+      char *lastd = d + (len-1);
+      while (len--)
+        *lastd-- = *lasts--;
+    }
+	return (dst);
 }
-
+/* 
 #include <string.h>
 
 int main()
 {
-	char src[] = "absss";
-	char dst[20];
+    char src[] = "absss";
+    char dst[20];
 
-	ft_memmove(dst, src, 5);
-	puts(dst);
-
-	char dst1[] = "absss";
-
-	puts("\n");
-	memmove(dst1 + 2, dst1, 3);
-	printf("%s", dst1);
+    ft_memmove(dst, src, 6);
+    puts(dst);
 
 
-	return (0);
-}
+    return (0);
+} */

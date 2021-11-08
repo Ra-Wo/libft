@@ -21,7 +21,7 @@ int ft_toupper(int ch)
 	return (ch);
 }
 
-int main() {
+/* int main() {
     char c;
 
     c = 'm';
@@ -36,4 +36,4 @@ int main() {
 	c = '=';
     printf("\n%c -> %c", c, ft_toupper(c));
     return 0;
-}
+} */

@@ -51,7 +51,7 @@ size_t ft_strlcat(char * dst, const char * src, size_t dstsize)
 	return (DSLen);
 
 }
-
+/* 
 int main()
 {
 	int size = 0;
@@ -72,3 +72,4 @@ int main()
 
 	return 0;
 }
+ */

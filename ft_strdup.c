@@ -19,7 +19,7 @@ char *ft_strdup(const char *s1)
     ft_strlcpy(ptr, s1, sSrc + 1);
     return (ptr);
 }
-
+/* 
 #include <stdio.h>
 
 int main()
@@ -33,4 +33,4 @@ int main()
  
     printf("%s", t);
     return 0;
-}
+} */

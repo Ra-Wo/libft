@@ -10,17 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
-/* 
-unsigned int ft_strlen(const char *str)
+#include "libft.h"
+
+/* unsigned int ft_strlen(const char *str)
 {
     unsigned int num;
     num = 0;
     while (str[num] != '\0')
         num++;
     return (num);
-}
+} */
 
 int ft_find(char const *str, char c)
 {
@@ -35,41 +34,82 @@ int ft_find(char const *str, char c)
     return 0;
 }
 
-char *ft_strtrim(char const *s1, char const *set)
+int ft_start(char const *str, char const *set)
 {
-    unsigned int s1Len;
-    unsigned int setLen;
-    int index;
+    int setLen;
+	int start;
 	int i;
-    
-    s1Len = ft_strlen(s1);
-    setLen = ft_strlen(set);
-    char *ptr = (char*)malloc((s1Len + setLen) * sizeof(char));
-	if(!ptr)
-		return (0);
-    index = 0;
+
+	setLen = ft_strlen(set);
 	i = 0;
-    while (setLen != 0)
-    {
-        while (s1Len != 0 && s1[index] != '\0')
-        {
-            if (!(ft_find(set, s1[index])))
-                ptr[i++] = s1[index];
-            index++;
-            s1Len--;
-  
-        }
-        setLen--;
-    }
-    ptr[i] = '\0';
-    return (ptr);
+	start = 0;
+	while (str[i])
+	{
+		if(!ft_find(set ,str[i]))
+		{
+			return start;
+		}
+		start++;
+		i++;
+	}
+	return 0;
 }
 
+int ft_end(char const *str, char const *set)
+{
+	int setLen;
+	int start;
+	int i;
+
+	setLen = ft_strlen(set);
+	i = ft_strlen(str) - 1;
+	start = 0;
+	while (str[i])
+	{
+		if(!ft_find(set ,str[i]))
+		{
+			return start;
+		}
+		start++;
+		i--;
+	}
+	return 0;
+}
+
+char *ft_strtrim(char const *s1, char const *set)
+{
+	int start;
+	int end;
+	int index;
+	char *ptr;
+	int s1Len;
+	int i;
+
+    start = ft_start(s1, set);
+	end = ft_end(s1, set);
+	s1Len = ft_strlen(s1);
+	index = s1Len - (start + end);
+	ptr = (char*)malloc(sizeof(char) * index + 1);
+	if(!ptr)
+		return (NULL);
+	s1 += start;
+	i = 0;
+	while (index--)
+	{
+		ptr[i] = *s1;
+		i++;
+		s1++; 
+	}
+	ptr[i] = '\0';
+    return (ptr);
+}
+/* 
 int main()
 {
-	char *p = ft_strtrim("abzc.", "abzc");
-    printf("%s \n", p); //q
+	char const *s1 = "https://www.goo;hhhg:l:e.com";
+	char const *set = "/";
+	char *p = ft_strtrim(s1, set);
+   	printf("%s \n", p);
     return 0;
-} */
-
-/* not correct */
+}
+// not correct */ 

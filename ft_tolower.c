@@ -22,7 +22,7 @@ int ft_tolower(int ch)
 	return (ch);
 }
 
-int main()
+/* int main()
 {
     char c, result;
 
@@ -39,4 +39,4 @@ int main()
     printf("tolower(%c) = %c\n", c, result);
 
     return 0;
-}
+} */

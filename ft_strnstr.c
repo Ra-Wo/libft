@@ -11,62 +11,42 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-
-
-unsigned int fstrlen(const char *str)
+char  *ft_strnstr(const char *s, const char *find, size_t len)
 {
-    unsigned int num;
-    num = 0;
-    while (str[num] != '\0')
-        num++;
-    return (num);
-}
-
-int compareWorld(const char *str1, const char *str2)
-{
+    int len_find;
     unsigned int i;
-	
-	i = fstrlen(str2) - 1;
-
-    while ((*str1++ == *str2++) && i-- != 0)
+    unsigned int x;
+    
+    len_find = ft_strlen(find);
+    if (len_find == 0)
+        return ((char *)s);
+    i = 0;
+    while(s[i] != '\0')
     {
-        if (*str1 != *str2)
-        	return 0;
-    }
-    return 1;
-}
-
-char *ft_strnstr(const char *s, const char *find, size_t len)
-{
-    while(len-- != 0)
-    {
-        if (*s == *find)
+      if (s[i] == *find)
+      {
+        x = 0;
+        while (find[x] != '\0' && find[x] ==  s[i + x] && (i + x) < len)
         {
-            if (compareWorld(s, find) && len != 0)
-            {
-                return ((char*)s);
-            }
+          if (find[x + 1] == '\0')
+            return ((char*)s + i);
+          x++;
         }
-        s++;
+      }
+      i++;
     }
-    return (0);
+    return (NULL);
 }
-
+/* 
 int main()
 {
-    const char *largestring = "F Bar Bazoo";
-    const char *smallstring = "B a";
-	int s = 10;
-    char *ptr;
- 
-    /* ptr = strnstr(largestring, smallstring, s);
-    printf("std:	%s\n", ptr); */
+    char haystack[30] = "aaabcabcd";
+    char needle[10] = "aabc";
+    char * empty = (char*)"";
 
-    char *ptr1;
- 
-    ptr1 = ft_strnstr(largestring, smallstring, s);
-    printf("Remake:	%s", ptr1);
 
+    printf("%d\n", ft_strnstr(haystack, "abcd", 9) == haystack + 5);
+    printf("%d\n", ft_strnstr(haystack, "cd", 8) == NULL);
+    printf("%d\n", ft_strnstr(haystack, "a", 1) == haystack);
     return 0;
-}
-
+} */

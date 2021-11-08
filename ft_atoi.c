@@ -44,12 +44,12 @@ int ft_atoi(const char *str)
 	}
 	return (number * sign); 
 }
-
+/* 
 
 int main () {
 
    int val;
-   char str[20] = " 2147483647";
+   char str[20] = " --214747";
    
    val = ft_atoi(str);
    printf("String value = %s, Int value = %d\n", str, val);
@@ -58,4 +58,4 @@ int main () {
    printf("String value = %s, Int value = %d\n", str, val);
 
    return(0);
-}
+} */
