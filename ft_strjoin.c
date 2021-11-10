@@ -29,7 +29,7 @@ char *ft_strjoin(char const *s1, char const *s2)
 	unsigned int i;
 	char *ptr;
 
-	if (!s1 || !s2)
+	if (!s1)
 		return (NULL);
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);

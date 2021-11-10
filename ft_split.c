@@ -12,94 +12,87 @@
 
 #include "libft.h"
 
-int ft_fill(char **list, int l, int size, char const *s)
+static void cpy(char *dst, char const *src, int n)
 {
-  int backup;
-  int i;
-  i = 0;
-  backup = size - 1;
-  list[l] = malloc(sizeof(char) * size);
-  s -= backup;
-  while (backup--)
-  {
-    list[l][i] = *s++;
-    i++;
-  }
-  list[l][i] = '\0';
-  return 0;
+    while (n--)
+        *dst++ = *src++;
+    *dst = '\0';
 }
 
-int ft_getsize(char const *s, char c, int start, char **list, int l)
+static int create_word(char const *s, char c, char **list, int words)
 {
-  int size;
+    int word_length;
+    char *word;
+    int index;
 
-  while (*s == c)
-    s++;
-  while (start--)
-    s++;
-  size = 0;
-  while (*s)
-  {
-    size++;
-    if (*s == c || *s == '\0')
-      break;
-    s++;
-  }
-  if(*s == '\0')
-    size++;
-  ft_fill(list, l, size, s);
-  return size;
+    index = 0;
+    while (*s != '\0')
+    {
+        word_length = 0;
+        if (*s != c){
+          while (index != words)
+          {
+              if (*s == c || *s == '\0')
+              {
+                if (!(word = (char *)malloc(sizeof(char) * (word_length + 1))))
+				{
+					while(index >= 0)
+						free(list[index--]);
+					free(list);
+					return 0;
+				}
+                cpy(word, (s - word_length), word_length);
+                list[index++] = word;
+                break;
+              }
+              word_length++;
+              s++;
+          }
+        }
+        s++;
+    }
+    return index;
 }
 
-int countWord(char const *str, char c)
+static int count_words(char const *str, char c)
 {
-  int num;
+    int words;
 
-  while(*str == c)
-    str++; 
-  num = 0;
-  while(*str != '\0' )
-  {
-    if(*str == c && *(str + 1) != c && *(str + 1) != '\0')
-        num++;
-    str++;
-  }
-  return (num);
+    words = 0;
+    while(*str)
+    {
+        if (*str != c && (*(str + 1) == c || *(str + 1) == '\0'))
+            words++;
+        str++;
+    }
+    return words;
 }
-
 
 char  **ft_split(char const *s, char c)
 {
-	char **list;
-	int allWord;
-	int sizelastworld;
-	int i;
-	int l;
-
-	allWord = countWord(s, c);
-	list = (char **)malloc(sizeof(char*) * (allWord + 2));
-	allWord++;
-	sizelastworld = 0;
-	i = 0;
-	l = 0;
-	while (allWord--)
+    int words;
+    char **list;
+	int a;
+	if (s == 0)
+		return (0);
+    words = count_words(s, c);
+    if(!(list = (char **)malloc(sizeof(char *) * (words + 1))))
 	{
-		i += sizelastworld;
-		sizelastworld = ft_getsize(s, c, i, list, l);
-		l++;
+		free(list);
+		return (NULL);
 	}
-	list[l] = 0;
-	return (list);
+    a = create_word(s, c, list, words);
+	if(!list)
+		return NULL;
+    list[a] = NULL;
+    return list;
 }
+
 /* 
 int main()
 {
-    char const str[] = "hello_#";
-    char c = '#';
-    char **x = ft_split(NULL, c);
-    int i =0;
-    while (x[i])
-    {
-        printf("%s\n", x[i++]);
-    }
+	
+	char **tab = ft_split(0, '_');
+	printf("%s", tab[0]);
+ 
 } */

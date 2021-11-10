@@ -18,7 +18,7 @@
 # include <stdio.h>
 
 int				ft_isalpha(int character);
-int				ft_isdigit(char num);
+int				ft_isdigit(int num);
 int				ft_isalnum(int ac);
 int				ft_isascii(int c);
 int				ft_isprint(int arg);

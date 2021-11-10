@@ -14,28 +14,40 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		x;
+	int x;
 	int		i;
 	char	*ptr;
+	unsigned int s_len;
 
+	s_len = ft_strlen(s);
 	if (!s)
 		return (NULL);
-	x = len;
+	
+	if (start > s_len)
+    	len = 0;
+	
+	if (len > s_len)
+    	len = s_len + 1;
+
 	i = 0;
-	ptr = (char *)malloc(len * sizeof(char));
+	ptr = (char *)malloc(len * sizeof(char) + 1);
 	if (!ptr)
 		return (NULL);
+	x = len;
 	while (x--)
 	{
 		ptr[i++] = *(s + start);
 		start++;
 	}
+	ptr[i] = '\0';
 	return (ptr);
 }
 
-int main()
+/* int main()
 {
-	char * s = ft_substr("tripouille", 0, 42000);
-
-	return (0);
-}
+	char str[] = "hello world";
+	int start = 6;
+	int len = 5;
+	printf("%s", ft_substr(str, start, len));
+	return 0;
+}  */

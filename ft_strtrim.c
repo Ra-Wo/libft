@@ -12,29 +12,18 @@
 
 #include "libft.h"
 
-/* unsigned int ft_strlen(const char *str)
-{
-    unsigned int num;
-    num = 0;
-    while (str[num] != '\0')
-        num++;
-    return (num);
-} */
-
-int ft_find(char const *str, char c)
+static int ft_find(char const *str, char c)
 {
     while (*str != '\0')
     {
         if (*str == c)
-        {
             return 1;
-        }
         str++;
     }
     return 0;
 }
 
-int ft_start(char const *str, char const *set)
+static int ft_start(char const *str, char const *set)
 {
     int setLen;
 	int start;
@@ -46,16 +35,14 @@ int ft_start(char const *str, char const *set)
 	while (str[i])
 	{
 		if(!ft_find(set ,str[i]))
-		{
 			return start;
-		}
 		start++;
 		i++;
 	}
 	return 0;
 }
 
-int ft_end(char const *str, char const *set)
+static int ft_end(char const *str, char const *set)
 {
 	int setLen;
 	int start;
@@ -67,13 +54,11 @@ int ft_end(char const *str, char const *set)
 	while (str[i])
 	{
 		if(!ft_find(set ,str[i]))
-		{
 			return start;
-		}
 		start++;
 		i--;
 	}
-	return 0;
+	return start;
 }
 
 char *ft_strtrim(char const *s1, char const *set)
@@ -103,13 +88,13 @@ char *ft_strtrim(char const *s1, char const *set)
 	ptr[i] = '\0';
     return (ptr);
 }
-/* 
+/*
 int main()
 {
-	char const *s1 = "https://www.goo;hhhg:l:e.com";
-	char const *set = "/";
-	char *p = ft_strtrim(s1, set);
+	
+	char *p = ft_strtrim("123", "");
    	printf("%s \n", p);
     return 0;
 }
-// not correct */ 
+
+// not correct    */

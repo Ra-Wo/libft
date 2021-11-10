@@ -42,10 +42,8 @@ size_t ft_strlcat(char * dst, const char * src, size_t dstsize)
 
     if (bDstSize > 0){
 		while (--bDstSize != 0 && *src != '\0')
-		{
-		*dst++ = *src;
-		src++;
-		}
+			*dst++ = *src++;
+		*dst = '\0';
 	}
 
 	return (DSLen);

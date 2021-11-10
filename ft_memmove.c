@@ -14,18 +14,23 @@
 
 void* ft_memmove(void *dst, const void *src, size_t len)
 {
-  char *d = dst;
-  const char *s = src;
-  if (d < s)
-    while (len--)
-      *d++ = *s++;
-  else
-    {
-      char const *lasts = s + (len-1);
-      char *lastd = d + (len-1);
-      while (len--)
-        *lastd-- = *lasts--;
-    }
+	char *d;
+	const char *s;
+
+	d = dst;
+	s = src;
+	if (dst == src)
+		return dst;
+	if (d < s)
+		while (len--)
+			*d++ = *s++;
+	else
+	{
+		char const *lasts = s + (len-1);
+		char *lastd = d + (len-1);
+		while (len--)
+		*lastd-- = *lasts--;
+	}
 	return (dst);
 }
 /* 
@@ -36,9 +41,9 @@ int main()
     char src[] = "absss";
     char dst[20];
 
-    ft_memmove(dst, src, 6);
+    ft_memmove(src, src + 2, 6);
     puts(dst);
 
 
     return (0);
-} */
+}  */

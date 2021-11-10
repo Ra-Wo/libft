@@ -12,7 +12,25 @@
 
 #include "libft.h"
 
-int	ft_isdigit(char c)
+int	ft_isdigit(int i)
 {
-	return (c >= 48 && c <= 57);
+    if (i >= '0' && i <='9')
+        return (1);
+	else 
+    	return (0);
 }
+
+/* 
+#include <ctype.h>
+int main ()
+{
+
+	int i;
+
+	i = -1;
+	printf("remake: %d --- std: %d {where: %c}\n", ft_isdigit(i + 304), isdigit(i + 304), i + 304);
+		i++;
+
+	return 0;
+}
+ */

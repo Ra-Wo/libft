@@ -15,16 +15,14 @@
 int ft_atoi(const char *str)
 {
 	int i;
-	int number = 0;
+	long number = 0;
 	int sign = 1;
 
 	i = 0;
 	while (str[i] == ' ' || str[i] == '\v' 
 		|| str[i] == '\r' || str[i] == '\t' 
 		|| str[i] == '\n' || str[i] == '\f')
-	{
 		i++;
-	}
 
 	if (str[i] == '+')
 	{
@@ -39,7 +37,7 @@ int ft_atoi(const char *str)
 
 	while (str[i] <= '9' && str[i] >= '0')
 	{
-		number = (number * 10) + (str[i] - '0') ;
+		number = (number * 10) + (str[i] - '0');
 		i++;
 	}
 	return (number * sign); 
@@ -49,7 +47,7 @@ int ft_atoi(const char *str)
 int main () {
 
    int val;
-   char str[20] = " --214747";
+   char str[20] = "-2147483648";
    
    val = ft_atoi(str);
    printf("String value = %s, Int value = %d\n", str, val);
