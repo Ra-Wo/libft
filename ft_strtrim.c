@@ -45,31 +45,32 @@ static int ft_start(char const *str, char const *set)
 static int ft_end(char const *str, char const *set)
 {
 	int setLen;
-	int start;
+	int end;
 	int i;
 
 	setLen = ft_strlen(set);
 	i = ft_strlen(str) - 1;
-	start = 0;
+	end = 0;
 	while (str[i])
 	{
 		if(!ft_find(set ,str[i]))
-			return start;
-		start++;
+			return end;
+		end++;
 		i--;
 	}
-	return start;
+	return end;
 }
 
 char *ft_strtrim(char const *s1, char const *set)
 {
-	int start;
-	int end;
-	int index;
-	char *ptr;
-	int s1Len;
-	int i;
-
+	int 	start;
+	int 	end;
+	int 	index;
+	char 	*ptr;
+	int 	s1Len;
+	int 	i;
+	if (!s1)
+		return NULL;
     start = ft_start(s1, set);
 	end = ft_end(s1, set);
 	s1Len = ft_strlen(s1);
@@ -80,11 +81,7 @@ char *ft_strtrim(char const *s1, char const *set)
 	s1 += start;
 	i = 0;
 	while (index--)
-	{
-		ptr[i] = *s1;
-		i++;
-		s1++; 
-	}
+		ptr[i++] = *s1++;
 	ptr[i] = '\0';
     return (ptr);
 }
