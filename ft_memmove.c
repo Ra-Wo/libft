@@ -33,17 +33,14 @@ void* ft_memmove(void *dst, const void *src, size_t len)
 	}
 	return (dst);
 }
+
+
 /* 
-#include <string.h>
-
-int main()
+#include<stdio.h>
+int main ()
 {
-    char src[] = "absss";
-    char dst[20];
-
-    ft_memmove(src, src + 2, 6);
-    puts(dst);
-
-
-    return (0);
-}  */
+	char s[] =  "abcde";
+	ft_memmove(s + 2, s, 3);
+	printf("%s", s);
+		return 0;
+} */	

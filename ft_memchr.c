@@ -12,12 +12,13 @@
 
 #include "libft.h"
 
+
 void* ft_memchr(const void* s, int c, size_t n)
 {
 	const unsigned char* s1;
 	size_t	i;
 
-	s1 = (unsigned char*)s;
+	s1 = (const unsigned char*)s;
 	i = 0;
 	while (i < n)
 	{
@@ -30,10 +31,10 @@ void* ft_memchr(const void* s, int c, size_t n)
 
 /* 
 int main () {
-   char s[] = {0, 1, 2, 3, 4, 5};
-   char *ret;
+   int s[100] = {0, 1, 2, 3, 4, 5};
+   //int *ret;
 
-   ret = ft_memchr(s, 2 + 256, 3);
-
+   //ret = memchr(s, 2, 3);
+	printf("%p \n %p", ft_memchr(s, 2 + 254, 5), s );
    return(0);
 } */

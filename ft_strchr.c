@@ -30,13 +30,13 @@ char *ft_strchr(const char *s, int c)
 
 /* 
 int main () {
-   const char str[] = "http://www.tutorialspoint.com";
-   const char ch = '.';
+   const char str[] = "abcd";
+   const char ch = '\0';
    char *ret;
 
    ret = ft_strchr(str, ch);
 
-   printf("String after |%c| is - |%s|\n", ch, ret);
+   printf("%p, %p\n", str + 4, ret);
    
    return(0);
 } */

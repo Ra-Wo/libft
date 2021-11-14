@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roudouch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 19:25:04 by roudouch          #+#    #+#             */
-/*   Updated: 2021/11/01 19:25:06 by roudouch         ###   ########.fr       */
+/*   Created: 2021/11/11 19:29:34 by roudouch          #+#    #+#             */
+/*   Updated: 2021/11/11 19:29:36 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memcpy(void * dst, const void * src, size_t n)
+void ft_putstr_fd(char *s, int fd)
 {
-	char *d;
-	const char *s;
+	int	x;
 
-	d = dst;
-	s = src;
-	if ((dst == src) && n == 0)
-		return (NULL);
-	if (!dst && !src)
-		return (NULL);
-	while (n--)
-		*d++ = *s++;
-	return (dst);
+	if (!s)
+		return ;
+	x = 0;
+	while (s[x])
+	{
+		write(fd, &s[x], 1);
+		x++;
+	}
 }
 
 /* 
-#include<stdio.h>
+#include <fcntl.h>
 int main ()
 {
-char s[] =  "abcde";
-ft_memcpy(s , s+ 2, 3);	
-printf("%s", s);
+	char *str = "hello world!";
+	int fd = open("text.txt", O_RDWR | O_CREAT, 0777);
+	ft_putstr_fd(str, fd);
 	return 0;
 } */

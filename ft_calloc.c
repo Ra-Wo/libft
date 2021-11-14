@@ -14,11 +14,13 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-    void *ptr = (void*)malloc(sizeof(void) * (size * count));
-    if(!ptr)
-        return (0);
-    ft_bzero(ptr, size * count);
-    return (ptr);
+	void	*ptr;
+
+	ptr = malloc(sizeof(void) * (size * count));
+	if (!ptr)
+		return (0);
+	ft_bzero(ptr, size * count);
+	return (ptr);
 }
 
 /* 
@@ -33,6 +35,5 @@ int main() {
   {
     printf("%d\n", ptr[i++]);   
   }
-  
   return 0;
 } */

@@ -1,39 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: roudouch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/01 19:25:04 by roudouch          #+#    #+#             */
-/*   Updated: 2021/11/01 19:25:06 by roudouch         ###   ########.fr       */
+/*   Created: 2021/11/12 08:44:31 by roudouch          #+#    #+#             */
+/*   Updated: 2021/11/12 08:44:33 by roudouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memcpy(void * dst, const void * src, size_t n)
+void ft_putendl_fd(char *s, int fd)
 {
-	char *d;
-	const char *s;
-
-	d = dst;
-	s = src;
-	if ((dst == src) && n == 0)
-		return (NULL);
-	if (!dst && !src)
-		return (NULL);
-	while (n--)
-		*d++ = *s++;
-	return (dst);
+	int		x;
+	char	newl;
+	
+	if (!s)
+		return ;
+	newl = '\n';
+	x = 0;
+	while (s[x])
+	{
+		write(fd, &s[x], 1);
+		x++;
+	}
+	write(fd, &newl, 1);
 }
 
 /* 
-#include<stdio.h>
-int main ()
+#include <fcntl.h>
+int main()
 {
-char s[] =  "abcde";
-ft_memcpy(s , s+ 2, 3);	
-printf("%s", s);
+	char *str = "this is the first line";
+	int fd = open("hello.dat", O_CREAT | O_RDWR | O_APPEND, 0777);
+	ft_putendl_fd(str, fd);
+
+	char *str1 = "this is the second line ";
+	fd = open("hello.txt", O_RDWR | O_APPEND, 0777);
+	ft_putendl_fd(str1, fd);
 	return 0;
 } */
