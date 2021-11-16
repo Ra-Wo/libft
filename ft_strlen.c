@@ -12,11 +12,12 @@
 
 #include "libft.h"
 
-unsigned int ft_strlen(const char *str)
+unsigned int	ft_strlen(const char *str)
 {
-    unsigned int num;
+	unsigned int	num;
+
 	num = 0;
-    while (str[num] != '\0')
-        num++;
-    return (num);
+	while (str[num] != '\0')
+		num++;
+	return (num);
 }

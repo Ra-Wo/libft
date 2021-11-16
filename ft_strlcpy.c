@@ -30,24 +30,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	dst[i] = '\0';
 	return (srclen);
 }
-
-/* 
-#include <string.h>
-
-int main ()
-{
-	int s = 11;
-
-	char src[] = "coucou";
-	char dst[10]; 
-	memset(dst, 'A', 10);
-
-	printf("std: \nreturn: %lu\n%s", strlcpy(dst, src, s), dst);
-
-	char st1[] = "coucou";
-	char st2[10];
-	memset(st2, 'A', 10);
-	printf("\n\nremake: \nreturn: %lu\n%s", ft_strlcpy(st2, st1, s), st2);
-	
-	return 0;
-} */

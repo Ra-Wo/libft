@@ -12,51 +12,24 @@
 
 #include "libft.h"
 
-/* unsigned int	ft_strlen(const char *str);
-
-int ft_toupper(int ch)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	if (ch >= 'a' && ch <= 'z')
+	unsigned int	len;
+	unsigned int	i;
+	char			*str;
+
+	i = 0;
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	str = malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	while (i < len)
 	{
-		return (ch - 32);
+		str[i] = f(i, s[i]);
+		i++;
 	}
-	return (ch);
+	str[i] = '\0';
+	return (str);
 }
- */
-char* ft_strmapi(char const* s, char (*f)(unsigned int, char))
-{
-    unsigned int len;
-    unsigned int i;
-    char* str;
-
-    i = 0;
-    if (!s || !f)
-        return (NULL);
-    len = ft_strlen(s);
-    if (!(str = (char*)malloc(sizeof(char) * (len + 1))))
-        return (NULL);
-    while (i < len)
-    {
-        str[i] = f(i, s[i]);
-        i++;
-    }
-    str[i] = '\0';
-    return (str);
-}
-/* 
-
-#include <stdio.h>
-
-char f(unsigned int i, char c)
-{
-    	
-	return (ft_toupper(c));
-}
-
-int main()
-{
-    char str1[] = "abc";
-    char* str2;
-    str2 = ft_strmapi(str1, *f);
-    printf("%s\n", str2);
-} */

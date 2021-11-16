@@ -12,62 +12,30 @@
 
 #include "libft.h"
 
-size_t ft_strlcat(char * dst, const char * src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
+	unsigned int	backup_dstsize;
+	size_t			final_length;
+	size_t			dlen;
+	size_t			slen;
 
-    unsigned int bDstSize;
-	size_t DSLen;
-	size_t dlen;
-	size_t slen;
-
-	dlen = 0;
-	while(dst[dlen] != '\0')
-		dlen++; 
-
-	slen = 0;
-	while(src[slen] != '\0')
-		slen++;
-
+	dlen = ft_strlen(dst);
+	slen = ft_strlen(src);
 	if (dstsize > (dlen))
- 		DSLen = (dlen) + (slen);
-	else 
-		DSLen = (slen) + dstsize;
-    
-	bDstSize = dstsize;
-    while (bDstSize != 0 && *dst != '\0')
-    {
-      dst++;
-      bDstSize--;
-    }
-
-    if (bDstSize > 0){
-		while (--bDstSize != 0 && *src != '\0')
+		final_length = (dlen) + (slen);
+	else
+		final_length = (slen) + dstsize;
+	backup_dstsize = dstsize;
+	while (backup_dstsize != 0 && *dst != '\0')
+	{
+		dst++;
+		backup_dstsize--;
+	}
+	if (backup_dstsize > 0)
+	{
+		while (--backup_dstsize != 0 && *src != '\0')
 			*dst++ = *src++;
 		*dst = '\0';
 	}
-
-	return (DSLen);
-
+	return (final_length);
 }
-/* 
-int main()
-{
-	int size = 0;
-
-	char s1[20]= "hello world";
-	char dest[25]= "123456789";
-	puts("\nstd:");
-	printf("%lu \n", strlcat(dest, s1, size));
-	puts(dest);
-
-	// ============
-
-	char s2[20]= "hello world";
-	char dest2[25]= "123456789";
-	puts("\nremake:");
-	printf("%lu \n", ft_strlcat(dest2, s2, size));
-	puts(dest2);
-
-	return 0;
-}
- */

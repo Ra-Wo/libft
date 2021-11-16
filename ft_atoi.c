@@ -38,18 +38,3 @@ int	ft_atoi(const char *str)
 		number = (number * 10) + (str[i++] - '0');
 	return (number * sign);
 }
-
-/* 
-int main () {
-
-   int val;
-   char str[20] = "-2147483648";
-   
-   val = ft_atoi(str);
-   printf("String value = %s, Int value = %d\n", str, val);
-   
-   val = atoi(str);
-   printf("String value = %s, Int value = %d\n", str, val);
-
-   return(0);
-} */

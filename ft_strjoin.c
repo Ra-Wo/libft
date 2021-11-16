@@ -34,13 +34,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ptr[i] = '\0';
 	return (ptr);
 }
-/* 
-int main ()
-{
-	char const *s1 = "hello ";
-	char const *s2 = "world hhhhhhh";
-	printf("%s\n", ft_strjoin(s1, s2));
-	puts(s1);
-	puts(s2);
-	return 0;
-} */

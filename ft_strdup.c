@@ -12,29 +12,15 @@
 
 #include "libft.h"
 
-char *ft_strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
-    unsigned int size;
-	
+	unsigned int	size;
+	char			*ptr;
+
 	size = ft_strlen(s1);
-    char *ptr = (char *)malloc(size * sizeof(char) + 1);
+	ptr = malloc(size * sizeof(char) + 1);
 	if (!ptr)
 		return (NULL);
-    ft_strlcpy(ptr, s1, size + 1);
-    return (ptr);
+	ft_strlcpy(ptr, s1, size + 1);
+	return (ptr);
 }
-/* 
-#include <stdio.h>
-
-int main()
-{
-
-    char s[] = "GeeksForGeeksdgdsgdskgdsgkgsdgdjsgdsgss";
- 
-    // A copy of source is created dynamically
-    // and pointer to copy is returned.
-    char* t = ft_strdup(s);
- 
-    printf("%s", t);
-    return 0;
-} */

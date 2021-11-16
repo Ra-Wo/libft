@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-static void negative(long nb, int fd)
+static void	negative(long nb, int fd)
 {
 	char	sign;
-	int 	number;
-	int 	x;
+	int		number;
+	int		x;
 
 	if (nb == -2147483648)
 	{
@@ -31,17 +31,17 @@ static void negative(long nb, int fd)
 	}
 	x = nb;
 	if (nb > 0)
-    {
+	{
 		negative(nb / 10, fd);
 		number = (x % 10) + '0';
-        write(fd, &number, 1);
-    }
+		write(fd, &number, 1);
+	}
 }
 
-static void positive(long nb, int fd)
+static void	positive(long nb, int fd)
 {
-	int number;
-	int x;
+	int	number;
+	int	x;
 
 	if (nb == 2147483647)
 	{
@@ -53,13 +53,13 @@ static void positive(long nb, int fd)
 	{
 		positive(nb / 10, fd);
 		number = (x % 10) + '0';
-        write(fd, &number, 1);
+		write(fd, &number, 1);
 	}
 }
 
-void ft_putnbr_fd(int n, int fd)
+void	ft_putnbr_fd(int n, int fd)
 {
-	long nb;
+	long	nb;
 
 	nb = n;
 	if (nb < 0)
@@ -69,13 +69,3 @@ void ft_putnbr_fd(int n, int fd)
 	else if (nb == 0)
 		write(fd, "0", 1);
 }
-
-/* 
-#include <fcntl.h>
-int main()
-{
-	int nb = -0;
-	int fd = open("data.txt", O_CREAT | O_RDWR, 0777);
-	ft_putnbr_fd(nb, fd);
-	return 0;
-} */

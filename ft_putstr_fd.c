@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
 	int	x;
 
@@ -25,13 +25,3 @@ void ft_putstr_fd(char *s, int fd)
 		x++;
 	}
 }
-
-/* 
-#include <fcntl.h>
-int main ()
-{
-	char *str = "hello world!";
-	int fd = open("text.txt", O_RDWR | O_CREAT, 0777);
-	ft_putstr_fd(str, fd);
-	return 0;
-} */

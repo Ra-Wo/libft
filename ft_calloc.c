@@ -18,22 +18,7 @@ void	*ft_calloc(size_t count, size_t size)
 
 	ptr = malloc(sizeof(void) * (size * count));
 	if (!ptr)
-		return (0);
+		return (NULL);
 	ft_bzero(ptr, size * count);
 	return (ptr);
 }
-
-/* 
-#include <stdio.h>
-int main() {
-  int *ptr;
-  int blocks = 10;
-  ptr = (int*) ft_calloc(blocks, sizeof(int));
-  int i = 0;
-
-  while (blocks-- != 0)
-  {
-    printf("%d\n", ptr[i++]);   
-  }
-  return 0;
-} */
